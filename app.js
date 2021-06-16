@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 
-app.get("/", function(req, res) {
+app.get("/home", function(req, res) {
 
   Post.find({}, function(err, foundPost) {
     if (!err) {
@@ -79,7 +79,7 @@ app.post("/compose", function(req, res) {
 
   post1.save(function(err) {
     if(!err){
-    res.redirect("/");
+    res.redirect("/home");
 }
   });
 });
