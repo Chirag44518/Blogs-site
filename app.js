@@ -19,7 +19,8 @@ const url=process.env.ATLAS_URL;
 mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  'useFindAndModify': false
+  useFindAndModify: false,
+  useCreateIndex: true
 });
 
 app.set('view engine', 'ejs');
@@ -118,7 +119,7 @@ if(!err)
 
 
 app.post("/posts/update/log", function(req, res) {
-console.log(req.body.postId);
+
   const requestedId= req.body.postId;
 
   Post.findOneAndUpdate(
